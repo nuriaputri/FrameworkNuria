@@ -10,7 +10,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func (PaymentService) FastPayHandler(ctx context.Context, req cm.FastPayRequest) (res cm.FastPayResponse) {
+func (PaymentService) CallHandler(ctx context.Context, req cm.FastPayRequest) (res cm.FastPayResponse) {
 
 	defer panicRecovery()
 
@@ -56,6 +56,7 @@ func (PaymentService) FastPayHandler(ctx context.Context, req cm.FastPayRequest)
 
 	}
 
+	fasResponse.Response = "Response"
 	fasResponse.Merchant = req.Merchant
 	fasResponse.MerchantID = req.MerchantID
 
